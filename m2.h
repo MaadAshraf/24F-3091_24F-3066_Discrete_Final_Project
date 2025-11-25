@@ -6,9 +6,10 @@
 using namespace std;
 class M2 {
 public:
-    vector<vector<string>> makeGroups(const vector<string>& students, int k);
-    void printGroups(const vector<vector<string>>& groups);
-private:
-    void generate(int index, int k, vector<string>& current, const vector<string>& students, vector<vector<string>>& result);
+    void addStudentToLab(const string& name, const string& course);
+    void printLabs();
+    vector<string> laba;
+    vector<string> labb;
+    vector<string> labc;
 };
 #endif
