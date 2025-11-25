@@ -1,33 +1,32 @@
 #include "m2.h"
-void M2::generate(int index, int k, vector<string>& current, const vector<string>& students, vector<vector<string>>& result) {
-    if (current.size() == k) {
-        result.push_back(current);
-        return;
+void M2::addStudentToLab(const string& name, const string& course) {
+    if (course == "cs101") {
+        laba.push_back(name);
     }
-
-    if (index >= students.size()) {
-        return;
+    else if (course == "cs202") {
+        labb.push_back(name);
     }
-
-    current.push_back(students[index]);
-    generate(index + 1, k, current, students, result);
-    current.pop_back();
-
-    generate(index + 1, k, current, students, result);
+    else if (course == "cs303") {
+        labc.push_back(name);
+    }
+    else {
+        cout << "course not available" << endl;
+    }
 }
-vector<vector<string>> M2::makeGroups(const vector<string>& students, int k) {
-    vector<vector<string>> result;
-    vector<string> current;
-    generate(0, k, current, students, result);
-    return result;
-}
-void M2::printGroups(const vector<vector<string>>& groups) {
-    for (int i = 0; i < groups.size(); i++) {
-        cout << "Group " << i + 1 << ": ";
-        for (int j = 0; j < groups[i].size(); j++) {
-            cout << groups[i][j];
-            if (j != groups[i].size() - 1) cout << ", ";
-        }
-        cout << endl;
+void M2::printLabs() {
+    cout << "Lab A (cs101): ";
+    for (int i = 0; i < laba.size(); i++) {
+        cout << laba[i] << " ";
     }
+    cout << endl;
+    cout << "Lab B (cs202): ";
+    for (int i = 0; i < labb.size(); i++) {
+        cout << labb[i] << " ";
+    }
+    cout << endl;
+    cout << "Lab C (cs303): ";
+    for (int i = 0; i < labc.size(); i++) {
+        cout << labc[i] << " ";
+    }
+    cout << endl;
 }
